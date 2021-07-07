@@ -1,5 +1,9 @@
 # index
 
+## 简介
+
+一款简洁的浏览器主页，支持本地存储网站的快捷方式
+
 ## Project setup
 ```
 npm install
@@ -19,6 +23,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
