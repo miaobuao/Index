@@ -12,7 +12,7 @@ export default {
       return this.$store.state.if_in_manage?"退出":"管理"
     },
     src(){
-      return this.$store.state.if_in_manage?"/svg/close.svg":"/svg/database.svg"
+      return this.$store.state.if_in_manage?"svg/close.svg":"svg/database.svg"
     }
   },
 };

@@ -1,10 +1,3 @@
-<!--
- * @Author: miaobuao
- * @Date: 2021-07-08 11:05:22
- * @LastEditTime: 2021-07-08 19:50:06
- * @LastEditors: miaobuao
- * @FilePath: \index\src\components\RemoveItem.vue
--->
 <template>
   <div class="item" @click="del" :title="title">
     <img :src="src" :key="isDir" />
@@ -65,9 +58,9 @@ export default {
   },
   computed: {
     src() {
-      if (this.isDir) return "/svg/删除文件夹.svg";
-      else if (this.info.type == "backward") return "/svg/返回.svg";
-      else return "/svg/del_link.svg";
+      if (this.isDir) return "svg/删除文件夹.svg";
+      else if (this.info.type == "backward") return "svg/返回.svg";
+      else return "svg/del_link.svg";
     },
     content_count() {
       var content = hash.identify(location.hash + "/" + this.name);

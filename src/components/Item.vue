@@ -1,7 +1,7 @@
 <!--
  * @Author: miaobuao
  * @Date: 2021-07-06 15:25:29
- * @LastEditTime: 2021-07-08 19:46:45
+ * @LastEditTime: 2021-07-08 20:15:27
  * @LastEditors: miaobuao
  * @Description: 
  * @FilePath: \index\src\components\item.vue
@@ -34,11 +34,11 @@ export default {
     computed:{
         src(){
             if(this.info.type=="dir")
-                return "/svg/dir.svg"
+                return "svg/dir.svg"
             else if(this.info.type=="backward")
-                return "/svg/返回.svg"
+                return "svg/返回.svg"
             else
-                return "/svg/link.svg"
+                return "svg/link.svg"
         },
         content_count()
         {

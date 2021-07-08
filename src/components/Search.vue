@@ -10,7 +10,7 @@
       v-model="content"
     />
     <div id="search_btn">
-      <img src=/svg/search_btn.svg @click="search"
+      <img src=svg/search_btn.svg @click="search"
       :title="$store.state.search_engine">
     </div>
   </div>
