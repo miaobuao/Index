@@ -5,6 +5,8 @@
 (还没完成)
 一款简洁的浏览器主页，支持本地存储网站的快捷方式
 
+[预览](./dist/index.html)
+
 ## Project setup
 ```
 npm install
