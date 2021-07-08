@@ -13,6 +13,7 @@
           </div>
           <div id="list">
             <Manager/>
+            <AltEngine/>
             <Add/>
             <RemoveItem v-for="item,index in items" :key="'destroy://'+name(index)" :info="item"/>
           </div>
@@ -27,6 +28,7 @@ import Manager from './Manager'
 import RemoveItem from "./RemoveItem"
 import Add from "./Add"
 import AddItem from "./AddItem"
+import AltEngine from "./AltEngine"
 export default {
     mounted(){
         var vc=this
@@ -65,7 +67,7 @@ export default {
     },
     watch:{
     },
-    components:{Item,Manager,RemoveItem,Add,AddItem}
+    components:{Item,Manager,RemoveItem,Add,AddItem,AltEngine}
 }
 </script>
 
