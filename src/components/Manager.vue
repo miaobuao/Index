@@ -1,29 +1,20 @@
 <template>
-  <div id="body" @click="show_panel=true">
-    <img src="/svg/database.svg" :title="title">
-    <p>{{title}}</p>
-  <Panel :close="close_panel" v-if="show_panel"/>
+  <div id="body" @click="$store.state.if_in_manage=!$store.state.if_in_manage">
+    <img :src="src()" :title="title()">
+    <p>{{title()}}</p>
   </div>
 </template>
 
 <script>
-import Panel from "./Panel"
 export default {
-  data(){
-    return {
-      title:"管理",
-      show_panel:false
-    }
-  },
   methods: {
-    close_panel()
-    {
-      this.show_panel=false
+    title(){
+      return this.$store.state.if_in_manage?"退出":"管理"
+    },
+    src(){
+      return this.$store.state.if_in_manage?"/svg/close.svg":"/svg/database.svg"
     }
   },
-  components:{
-    Panel
-  }
 };
 </script>
 

@@ -1,6 +1,14 @@
+<!--
+ * @Author: miaobuao
+ * @Date: 2021-07-06 15:25:29
+ * @LastEditTime: 2021-07-08 19:46:45
+ * @LastEditors: miaobuao
+ * @Description: 
+ * @FilePath: \index\src\components\item.vue
+-->
 <template>
   <div class=item @click="goto" :title="title">
-      <img :src="src">
+      <img :src="src" :key="isDir">
       <p>{{name}}</p>
   </div>
 </template>
@@ -20,7 +28,7 @@ export default {
             if(this.isDir || this.info.type=="backward")
                 hash.goto(location.hash+"/"+this.name)
             else
-                alert(this.details.name)
+                window.open(this.details.url)
         }
     },
     computed:{
@@ -34,8 +42,8 @@ export default {
         },
         content_count()
         {
-            var content=hash.identify(location.hash+"/"+this.name)
-            return content?content.length:0
+            var content=hash.identify(decodeURI(location.hash)+"/"+this.name)
+            return content.length-1
         },
         title()
         {
@@ -50,9 +58,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .item{
-    /* float: left; */
     width:45px;
     padding: 13px;
 }

@@ -1,11 +1,21 @@
 <template>
   <div>
-      <div id=list v-if="is_hash_real">
+      <div id=list v-if="is_hash_real && !this.$store.state.if_in_manage">
+        <Manager/>
         <Item v-for="item,index in items" :key="name(index)" :info="item"/>
-        <manager/>
+      </div>
+      <div id=unknown v-else-if="!$store.state.if_in_manage">
+          不存在的路径
       </div>
       <div v-else>
-          不存在的路径
+          <div v-show="$store.state.is_add && $store.state.if_in_manage">
+              <AddItem/>
+          </div>
+          <div id="list">
+            <Manager/>
+            <Add/>
+            <RemoveItem v-for="item,index in items" :key="'destroy://'+name(index)" :info="item"/>
+          </div>
       </div>
   </div>
 </template>
@@ -14,11 +24,15 @@
 import Item from "./Item"
 import hash from "../js/hash"
 import Manager from './Manager'
+import RemoveItem from "./RemoveItem"
+import Add from "./Add"
+import AddItem from "./AddItem"
 export default {
     mounted(){
         var vc=this
         window.onhashchange=function(){
             vc.refresh()
+            hash.goto()
         }
     },
     data(){
@@ -26,7 +40,10 @@ export default {
             items:hash.item_list(),
             is_hash_real:hash.is_real(),
             shift:0,
-            path:hash.hash()+"/"
+            not_in_manage:true,
+            path:hash.hash()+"/",
+            is_add:false,
+            hashs:[1,2,3]
         }
     },
     methods:{
@@ -44,18 +61,23 @@ export default {
             if(this.items[index].type=="backward")
                 return "backward"
             return this.path+index
-        }
+        },
     },
-    components:{Item,Manager}
+    watch:{
+    },
+    components:{Item,Manager,RemoveItem,Add,AddItem}
 }
 </script>
 
 <style>
 #list{
-    max-width: 888px;
+    max-width: 655px;
     display: flex;
     justify-content:left;
     flex-wrap: wrap;
-    margin: 12px auto;
+    margin: 46px auto;
+}
+#unknown{
+    float: left;
 }
 </style>
