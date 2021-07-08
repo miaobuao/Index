@@ -17,7 +17,7 @@ const store = new Vuex.Store({
             return localStorage.getItem("search_engine")?localStorage.getItem("search_engine"):"bing"
         }(),
         if_in_manage:false,
-        is_add:false
+        is_add:false,
     }
 })
 

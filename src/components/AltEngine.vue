@@ -11,7 +11,9 @@ export default {
     alt(){
         var se=this.$store.state.search_engine
         var li=["baidu","bing","google","github"]
-        this.$store.state.search_engine=li[(li.indexOf(se)+1)%li.length]
+        se=li[(li.indexOf(se)+1)%li.length]
+        this.$store.state.search_engine=se
+        localStorage.setItem("search_engine",se)
         return;
     },
   },
